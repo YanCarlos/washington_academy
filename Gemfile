@@ -4,9 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '4.2.9'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 0.20.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -60,3 +62,21 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'font-awesome-rails', '4.7.0.1'
+gem 'bootstrap', '~> 4.1.3'
+gem 'rails_12factor', group: :production
+gem 'haml'
+gem 'draper'
+gem 'popper_js', '~> 1.12.9'
+gem 'bootstrap_form'
+gem 'jquery-rails'
+gem 'devise'
+gem 'rolify'
+gem 'smart_listing'
+gem 'faker'
+gem 'data-confirm-modal'
+gem 'breadcrumbs_on_rails'
+gem 'dotenv-rails'
+gem 'figaro'
+
