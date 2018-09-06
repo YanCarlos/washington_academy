@@ -10,7 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require greensock/TweenMax.min.js
+//= require greensock/TimelineMax.min.js
+//= require scrollmagic/ScrollMagic.min.js
+//= require greensock/animation.gsap.min.js
+//= require greensock/ScrollToPlugin.min.js
+//= require OwlCarousel2-2.2.1/owl.carousel.js
+//= require easing/easing.js
+//= require parallax-js-master/parallax.min.js
+//= require custom.js
+
