@@ -1,3 +1,12 @@
-.main-section
-	.map-image
-		= image_tag('map.svg', class: 'image-map')
+.home
+  .row.justify-content-md-center.align-items-md-end.globe-container
+    .col-md-12.text-center
+      %h1.white-color.title-page
+        It's easy if you try!
+      %h4.white-color
+        Open the world of opportunities!
+    .col-md-12.text-center
+      .courses_button.trans_200.red-button
+        %a{:href => "#"} View more
+    .col-md-12.text-center
+      = image_tag 'globe.svg', class: 'globe'

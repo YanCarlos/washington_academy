@@ -1,0 +1,102 @@
+@import 'variable';
+
+.home{
+	background-image: image-url('map.svg');
+	background-color: $blue;
+	background-position: 50% 0;
+  background-repeat: no-repeat; 
+  background-size: 100%;
+  @include media-breakpoint-down(md) { 
+  	max-height: 70vh;
+  	padding-top: 13%;
+  }
+
+  @include media-breakpoint-down(sm) { 
+  	max-height: 90vh;
+  	padding-top: 13%;
+  }
+
+}
+
+.top_bar{
+	background-color: $blue-2;
+}
+
+.login_button{
+	background-color: $red-flag;
+	border: 1px solid $red-flag;
+	a{
+		color: white;
+	}
+}
+.main_nav li a:hover, .main_nav li.active a{
+	color: $red-flag;
+}
+.main_nav li.active::after{
+	background: $red-flag;
+}
+
+.logo_container{
+	width: 20%;
+	a{
+		.logo_text{
+			img{
+				width: 90%;
+				@include media-breakpoint-down(md){
+					width: 70%;
+				}
+			}
+		}
+	}
+	@include media-breakpoint-down(md) { 
+		width: 60%;
+	}
+}
+
+
+.globe{
+	width: 70%;
+	margin-top: 5%;
+	@include media-breakpoint-down(sm) { 
+  	width: 95%;
+  	margin-top: 10%;
+  }
+}
+
+.globe-container{
+	padding-top: 15%;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.white-color{
+	color: white;
+}
+
+.red-button{
+	background-color: $red-flag;
+	border-radius: 25px;
+}
+
+.section_title_container{
+	max-width: 60%;
+	@include media-breakpoint-down(md) { 
+		max-width: 100%;
+	}
+}
+
+
+.title-page{
+	@include media-breakpoint-down(sm) { 
+		margin-bottom: 4%;
+	}
+}
+
+.feature_icon{
+	i{
+		font-size: 4rem;
+    color: $red-flag;
+	}
+}

@@ -1,0 +1,74 @@
+.courses
+  .section_background.parallax-window{"data-image-src" => image_url('courses.jpg'), "data-parallax" => "scroll", "data-speed" => "0.8"}
+  .container
+    .row
+      .col
+        .section_title_container.text-center
+          %h2.section_title Cursos
+          .section_subtitle
+            %h3 Tecnico en ingles comunicativo
+            %br
+            %p Contamos con horarios flexibles y requisitos minimos de admisión, cualquier duda o inquietud puedes contactarnos por medio del formulario de este sitio web o nuestro numero telefonico, será un placer resolver tus inquietudes.
+    .row.courses_row
+      / Course
+      .col-lg-4.course_col
+        .course
+          .course_image
+            = image_tag('couser1.png')
+          .course_body
+            %h3.course_title
+              %a{:href => "course.html"} Software Training
+            .course_teacher Mr. John Taylor
+            .course_text
+              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
+          .course_footer
+            .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
+              .course_info
+                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
+                %span 20 Student
+              .course_info
+                %i.fa.fa-star{"aria-hidden" => "true"}
+                %span 5 Ratings
+              .course_price.ml-auto $130
+      / Course
+      .col-lg-4.course_col
+        .course
+          .course_image
+            = image_tag('couser2.png')
+          .course_body
+            %h3.course_title
+              %a{:href => "course.html"} Developing Mobile Apps
+            .course_teacher Ms. Lucius
+            .course_text
+              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
+          .course_footer
+            .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
+              .course_info
+                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
+                %span 20 Student
+              .course_info
+                %i.fa.fa-star{"aria-hidden" => "true"}
+                %span 5 Ratings
+              .course_price.ml-auto Free
+      / Course
+      .col-lg-4.course_col
+        .course
+          .course_image
+            = image_tag('couser3.png')
+          .course_body
+            %h3.course_title
+              %a{:href => "course.html"} Starting a Startup
+            .course_teacher Mr. Charles
+            .course_text
+              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
+          .course_footer
+            .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
+              .course_info
+                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
+                %span 20 Student
+              .course_info
+                %i.fa.fa-star{"aria-hidden" => "true"}
+                %span 5 Ratings
+              .course_price.ml-auto
+                %span> $320
+                $220
