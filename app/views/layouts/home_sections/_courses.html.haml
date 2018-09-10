@@ -4,32 +4,12 @@
     .row
       .col
         .section_title_container.text-center
-          %h2.section_title Cursos
+          %h2.section_title Curso
           .section_subtitle
             %h3 Tecnico en ingles comunicativo
+            %h5 Duración de 2 años
             %br
-            %p Contamos con horarios flexibles y requisitos minimos de admisión, cualquier duda o inquietud puedes contactarnos por medio del formulario de este sitio web o nuestro numero telefonico, será un placer resolver tus inquietudes.
     .row.courses_row
-      / Course
-      .col-lg-4.course_col
-        .course
-          .course_image
-            = image_tag('couser1.png')
-          .course_body
-            %h3.course_title
-              %a{:href => "course.html"} Software Training
-            .course_teacher Mr. John Taylor
-            .course_text
-              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
-          .course_footer
-            .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
-              .course_info
-                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
-                %span 20 Student
-              .course_info
-                %i.fa.fa-star{"aria-hidden" => "true"}
-                %span 5 Ratings
-              .course_price.ml-auto $130
       / Course
       .col-lg-4.course_col
         .course
@@ -37,19 +17,38 @@
             = image_tag('couser2.png')
           .course_body
             %h3.course_title
-              %a{:href => "course.html"} Developing Mobile Apps
-            .course_teacher Ms. Lucius
+              %a Horario en la semana
+            .course_teacher De Lunes a Jueves
             .course_text
-              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
+              %ul.ul-list
+                %li De 8 am A 10 am 
+                %li De 10 am A 12 pm 
+                %li De 3 pm A 5 pm 
+                %li De 5 pm A 7 pm 
+                %li De 7 pm A 9 pm 
           .course_footer
             .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
               .course_info
-                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
-                %span 20 Student
+                %i.fa.fa-info-circle{"aria-hidden" => "true"}
+                %span Puedes elegir el que mas se adapte a ti.
+      / Course
+      .col-lg-4.course_col
+        .course
+          .course_image
+            = image_tag('couser1.png')
+          .course_body
+            %h3.course_title
+              %a Horario fines de semana
+            .course_teacher Sabatino
+            .course_text
+              %ul.ul-list
+                %li De 8 A 12 pm 
+                %li De 2 pm A 5:30 pm
+          .course_footer
+            .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
               .course_info
-                %i.fa.fa-star{"aria-hidden" => "true"}
-                %span 5 Ratings
-              .course_price.ml-auto Free
+                %i.fa.fa-info-circle{"aria-hidden" => "true"}
+                %span Tu puedes elegir tu horario.
       / Course
       .col-lg-4.course_col
         .course
@@ -57,18 +56,17 @@
             = image_tag('couser3.png')
           .course_body
             %h3.course_title
-              %a{:href => "course.html"} Starting a Startup
-            .course_teacher Mr. Charles
+              %a Requisitos de admisión
+            .course_teacher Todo muy fácil
             .course_text
-              %p Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor
+              %ul.ul-list
+                %li 2 Fotos con fondo azul
+                %li Fotocopia del carnet de salud
+                %li Fotocopia de recibo (Agua, Gas o Energia)
+                %li Fotocopia de Cedula o Tarjeta de identidad
+                %li Carpeta colgante
           .course_footer
             .course_footer_content.d-flex.flex-row.align-items-center.justify-content-start
               .course_info
-                %i.fa.fa-graduation-cap{"aria-hidden" => "true"}
-                %span 20 Student
-              .course_info
-                %i.fa.fa-star{"aria-hidden" => "true"}
-                %span 5 Ratings
-              .course_price.ml-auto
-                %span> $320
-                $220
+                %i.fa.fa-check{"aria-hidden" => "true"}
+                %span ¿Lo ves? nada del otro mundo!
