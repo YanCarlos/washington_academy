@@ -13,6 +13,5 @@ module WashingtonAcademy
     # the framework and any gems in your application.
     config.i18n.default_locale = :en
     config.assets.enabled = true
-    config.assets.initialize_on_precompile = false
   end
 end
