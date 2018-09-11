@@ -23,4 +23,5 @@
 //= require easing/easing.js
 //= require parallax-js-master/parallax.min.js
 //= require custom.js
+//= require menu.js
 
