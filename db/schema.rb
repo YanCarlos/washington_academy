@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911031228) do
+ActiveRecord::Schema.define(version: 20180914023452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20180911031228) do
     t.string "name"
     t.string "phone"
     t.string "message"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -44,6 +49,10 @@ ActiveRecord::Schema.define(version: 20180911031228) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "name"
+    t.string   "identification"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

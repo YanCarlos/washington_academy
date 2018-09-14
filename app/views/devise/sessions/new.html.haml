@@ -1,0 +1,12 @@
+= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin'}) do |f|
+  .text-center.mb-5
+    = image_tag 'logo.svg', width: '250'
+  = f.text_field :email, hide_label: true, placeholder: 'Correo electronico', autofocus: true, autocomplete: "email", class: 'form-control'
+  = f.password_field :password, hide_label: true, placeholder: 'Contraseña', autocomplete: "current-password", class: 'form-control'
+  - if devise_mapping.rememberable?
+    = f.form_group :remember_me, class: 'checkbox mb-3' do
+      = f.check_box :remember_me, label: 'Recuerdame'
+
+  = f.submit "Log in", class: 'btn btn-lg btn-primary btn-block red-button'
+
+ 

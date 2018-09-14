@@ -1,0 +1,24 @@
+.options-admin
+  .section-title List of groups
+  = link_to 'New group', new_group_path
+
+.row.justify-content-md-center
+  .col-md-12.col-md-auto
+    .table
+      .head
+        .row
+          .col-md-3.column
+            Name
+          .col-md-7.column
+            Description
+          .col-md-2.column
+            Options
+      - @groups.each_with_index do |group, index|
+        .row{class: ('pair' if index % 2 == 0)}
+          .col-md-3.column
+            = group.name
+          .col-md-7.column
+            = group.description
+          .col-md-2.column
+
+

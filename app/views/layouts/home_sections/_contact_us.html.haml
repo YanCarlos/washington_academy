@@ -16,6 +16,6 @@
             .justify-content-center
               = f.text_field :name, {:placeholder => "Nombre", :required => "required", class: 'counter_input'}
               = f.text_field :phone, {:placeholder => "Telefono", :required => "required", class: 'counter_input'}
-              = f.text_area :message, {:placeholder => "Mensaje", :required => "required", class: 'counter_input'}
+              = f.text_area :message, {:placeholder => "Mensaje", :required => "required", class: 'counter_input height_auto', cols: 40, rows: 6}
               = f.submit 'Enviar', class: 'counter_form_button red-button'
               

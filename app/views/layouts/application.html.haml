@@ -12,5 +12,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   
   %body
-    .super_container
-      = yield
+    - if controller_name.to_sym == :home || !current_user
+      .super_container
+        = yield
+    - elsif current_user
+      = render partial: 'admin/header'
+      .panel-admin.p-0.vh100
+        .row.vh100.max100
+          = render partial: 'admin/menu'
+          %main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4
+            = yield

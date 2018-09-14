@@ -288,4 +288,5 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # en
   config.secret_key = '8c94bfb4171879f60356e29c919ae0e29fcf93a9f2f93190bd321b2626c7455d6e260a7ec6692658c0800a6803d388983391aaf07a3e26e72b2c10088110e434'
+  config.sign_out_via = :get
 end

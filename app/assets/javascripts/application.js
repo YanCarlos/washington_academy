@@ -14,6 +14,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrapValidator.min
 //= require greensock/TweenMax.min.js
 //= require greensock/TimelineMax.min.js
 //= require scrollmagic/ScrollMagic.min.js

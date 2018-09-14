@@ -79,4 +79,7 @@ gem 'data-confirm-modal'
 gem 'breadcrumbs_on_rails'
 gem 'dotenv-rails'
 gem 'figaro'
+gem 'bootstrap-validator-rails'
+
+
 
