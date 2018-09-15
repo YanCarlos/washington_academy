@@ -1,10 +1,8 @@
-.options-admin.flex-start.m-0
+.options-admin
 	.section-title Creating a new group
+	= link_to 'Back', :back
 = bootstrap_form_for @group, html:{class: 'form-main form-depend'} do |f|
-	- unless flash.empty?
-		.row
-			.col-md-12
-				= render partial: 'utils/flash_messages'  
+	= render partial: 'utils/flash_messages'  
 	.row
 		.col-md-3
 			= f.text_field :name, hide_label: true, placeholder: 'Name or title', required: 'required'

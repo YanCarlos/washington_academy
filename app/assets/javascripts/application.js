@@ -10,8 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
-//= require jquery3
 //= require popper
 //= require bootstrap
 //= require bootstrapValidator.min
@@ -23,6 +24,7 @@
 //= require OwlCarousel2-2.2.1/owl.carousel.js
 //= require easing/easing.js
 //= require parallax-js-master/parallax.min.js
+//= require data-confirm-modal
 //= require custom.js
 //= require menu.js
 

@@ -4,6 +4,7 @@
 
 .row.justify-content-md-center
   .col-md-12.col-md-auto
+    = render partial: 'utils/flash_messages'
     .table
       .head
         .row
@@ -15,10 +16,15 @@
             Options
       - @groups.each_with_index do |group, index|
         .row{class: ('pair' if index % 2 == 0)}
-          .col-md-3.column
-            = group.name
+          .col-md-3.column.bold
+            %a{href: edit_group_path(group)}
+              = group.name
           .col-md-7.column
             = group.description
           .col-md-2.column
+            %a.btn.btn-sm.btn-actions{href: edit_group_path(group)}
+              %i.fa.fa-pencil
+            = link_to_delete_helper group, 'Would you like to delete this group?'
+
 
 

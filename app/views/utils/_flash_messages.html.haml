@@ -1,3 +1,6 @@
-#flash_messages
-  - flash.each do |key, value|
-    = content_tag(:div, value, :class => "flash flash_messages #{key}")
+- unless flash.empty?
+  .row
+    .col-md-12
+      #flash_messages
+        - flash.each do |key, value|
+          = content_tag(:div, value, :class => "flash flash_messages #{key}")

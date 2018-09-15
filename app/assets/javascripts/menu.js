@@ -6,13 +6,16 @@ $(document).ready(function(){
     $("a[href='" + aid +"']").parent().addClass('active');
     $('html,body').animate({scrollTop: $(aid).offset().top},'slow'); 
   });
-  $('form')
-    .bootstrapValidator({
-    }).on('success.form.bv', function(e) {
-      // Called when the form is valid
-      var $form = $(e.target);
-      if ($form.data('remote') && $.rails !== undefined) {
-          e.preventDefault();
-      }
-    });
+  
 });
+
+
+$(document).on("turbolinks:load",function(){
+  $('form').bootstrapValidator({}).on('success.form.bv', function(e) {
+    // Called when the form is valid
+    var $form = $(e.target);
+    if ($form.data('remote') && $.rails !== undefined) {
+        e.preventDefault();
+    }
+  });
+})
