@@ -4,7 +4,7 @@
       = image_tag(@student.avatar_url) if @student.avatar? 
     %div
       %span.btn.btn-default.btn-file.avatar-options
-        %span.fileinput-new.new Select profile
+        %span.fileinput-new.new Select avatar
         %span.fileinput-exists.change Change
         = f.file_field_without_bootstrap :avatar
       %a.btn.btn-default.fileinput-exists.avatar-options.remove{"data-dismiss" => "fileinput"} Remove
