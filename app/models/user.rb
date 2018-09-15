@@ -4,7 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   rolify
+  belongs_to :group
+  mount_uploader :avatar, AvatarUploader
+  before_validation :before_validation
 
+  def before_validation
+    self.password = self.identification if self.password.nil? && self.new_record?
+  end
 
   def be_admin
     add_role :admin
@@ -17,4 +23,6 @@ class User < ApplicationRecord
   def be_teacher
     add_role :teacher
   end
+
+
 end

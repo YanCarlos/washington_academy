@@ -27,4 +27,5 @@
 //= require data-confirm-modal
 //= require custom.js
 //= require menu.js
+//= require jasny-bootstrap.min
 

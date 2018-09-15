@@ -3,4 +3,4 @@
     .col-md-12
       #flash_messages
         - flash.each do |key, value|
-          = content_tag(:div, value, :class => "flash flash_messages #{key}")
+          = content_tag(:div, simple_format(value), :class => "flash flash_messages #{key}")

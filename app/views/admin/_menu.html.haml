@@ -1,13 +1,8 @@
 %nav.col-md-2.d-none.d-md-block.bg-light.sidebar.pt-3
   .sidebar-sticky
     %ul.nav.flex-column.menu-admin
-      %li.nav-item
-        %a.nav-link{:href => groups_path, class: is_menu_active?(:groups)}
-          %i.ico.fa.fa-users
-          Groups
-      %li.nav-item
-        %a.nav-link{:href => "#", class: is_menu_active?(:users)}
-          %i.ico.fa.fa-user
-          Users
+      - if current_user.has_role? :admin
+        = render partial: 'admin/menu/admin'
+    
 
       
