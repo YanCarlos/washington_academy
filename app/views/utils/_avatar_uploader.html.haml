@@ -1,7 +1,7 @@
 = f.form_group :avatar, label: false do
-  .fileinput{"data-provides" => "fileinput", class: avatar_exists?(@student.avatar)} 
+  .fileinput{"data-provides" => "fileinput", class: avatar_exists?(object.avatar)} 
     .fileinput-preview.thumbnail{"data-trigger" => "fileinput", :style => "width: 180px; height: 180px;"}
-      = image_tag(@student.avatar_url) if @student.avatar? 
+      = image_tag(object.avatar_url) if object.avatar? 
     %div
       %span.btn.btn-default.btn-file.avatar-options
         %span.fileinput-new.new Select avatar

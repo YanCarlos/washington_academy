@@ -43,7 +43,8 @@ class StudentsController < LockController
       :address, 
       :group_id, 
       :identification,
-      :avatar
+      :avatar,
+      :active
     )
   end
 

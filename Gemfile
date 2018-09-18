@@ -83,6 +83,8 @@ gem 'bootstrap-validator-rails'
 gem 'data-confirm-modal'
 gem 'carrierwave', '~> 1.0'
 gem 'jasny-bootstrap-rails'
+gem 'tinymce-rails'
+
 
 
 

@@ -24,8 +24,11 @@
 //= require OwlCarousel2-2.2.1/owl.carousel.js
 //= require easing/easing.js
 //= require parallax-js-master/parallax.min.js
+//= require tinymce
 //= require data-confirm-modal
 //= require custom.js
 //= require menu.js
 //= require jasny-bootstrap.min
+//= require util.js
+
 

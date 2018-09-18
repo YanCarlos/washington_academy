@@ -5,10 +5,10 @@
 	= render partial: 'utils/flash_messages'  
 	.row
 		.col-md-3
-			= f.text_field :name, hide_label: true, placeholder: 'Name or title', required: 'required'
+			= f.text_field :name, placeholder: 'Name or title', required: 'required'
 	.row
 		.col-md-12
-			= f.text_area :description, hide_label: true, placeholder: 'Description', required: 'required'
+			= f.text_area :description, placeholder: 'Description', required: 'required'
 	.row.justify-content-end
 		.col-md-2
 			= f.submit 'Save', class: 'btn btn-lg btn-primary btn-block red-button'

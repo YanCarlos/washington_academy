@@ -1,6 +1,6 @@
 .row
   .col-md-3
-    = render partial: 'utils/avatar_uploader', locals: { f: f, object: @student }
+    = render partial: 'utils/avatar_uploader', locals: { f: f, object: @teacher }
   .col-md-9
     .row
       .col-md-4
@@ -14,7 +14,5 @@
       .col-md-8
         = f.text_field :address, placeholder: 'Address', required: 'required'
       .col-md-4
-        = f.select(:group_id, Group.all.collect {|g| [ g.name, g.id ] },  {  prompt: 'Select a group'}, required: 'required' )
-      .col-md-4
-        = f.form_group :terms, label: { text: 'Do you want to activate this student?' } do
+        = f.form_group :terms, label: { text: 'Do you want to activate this teacher?' } do
           = f.check_box :active, label: 'Activate'

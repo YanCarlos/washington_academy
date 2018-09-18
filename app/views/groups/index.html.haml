@@ -14,7 +14,7 @@
             Description
           .col-md-2.column
             Options
-      - @groups.each_with_index do |group, index|
+      - @groups.order(id: :desc).each_with_index do |group, index|
         .row{class: ('pair' if index % 2 == 0)}
           .col-md-3.column.bold
             %a{href: edit_group_path(group)}

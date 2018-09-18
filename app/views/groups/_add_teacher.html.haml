@@ -1,0 +1,19 @@
+#add_teacher_to_group.modal.inmodal{'aria-hidden': 'true', :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content.animated.fadeIn
+      .modal-header
+        %h4.modal-title Adding teacher to group #{@group.name}
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &#215;
+          %span.sr-only Close
+      = bootstrap_form_tag(url: add_teacher_to_group_path) do |f|
+        .modal-body
+          .row
+            = f.hidden_field :group_id, value: @group.id
+            .col-md-6
+              = f.select :teacher_id, @avalaible_teachers.collect {|c| [ c.name, c.id ] }, {  prompt: 'Select a teacher'}, required: 'required' 
+            .col-md-12
+            .col-md-12.align-right
+        .modal-footer
+          .col-md-3
+            = f.submit 'Add teacher', class: 'btn btn-lg btn-primary btn-block red-button'

@@ -1,0 +1,39 @@
+.options-admin
+  .section-title List of teachers
+  = link_to 'New teacher', new_teacher_path
+
+.row.justify-content-md-center
+  .col-md-12.col-md-auto
+    = render partial: 'utils/flash_messages'
+    .table
+      .head
+        .row
+          .col-md-3.column
+            Name
+          .col-md-2.column
+            identification
+          .col-md-3.column
+            Email
+          .col-md-2.column
+            Phone
+          .col-md-1.column
+            Options
+      - @teachers.each_with_index do |student, index|
+        .row{class: ('pair' if index % 2 == 0)}
+          .col-md-3.column.bold
+            = render_avatar(student.avatar.url)
+            %a{href: edit_teacher_path(student)}
+              = student.name
+          .col-md-2.column
+            = student.identification
+          .col-md-3.column
+            = student.email
+          .col-md-2.column
+            = student.phone
+          .col-md-1.column
+            %a.btn.btn-sm.btn-actions{href: edit_teacher_path(student)}
+              %i.fa.fa-pencil
+            = link_to_delete_helper student, 'Would you like to delete this teacher?'
+
+
+
