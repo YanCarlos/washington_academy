@@ -18,9 +18,9 @@ module LinksHelper
       destroy_user_session_path , class: 'nav-link', 
       method: :delete, 
       data: {
-        confirm: '¿Desea salir de la plataforma?', 
-        title: 'Cerrando Sesión', 
-        commit: 'Salir', 
+        confirm: 'Do you want to log out?', 
+        title: 'Sign Out', 
+        commit: 'Yes, i do', 
         cancel: 'No'}
     )
   end

@@ -1,6 +1,7 @@
 class GroupsController < LockController
+  load_and_authorize_resource :group
   before_action :get_groups, only: :index
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: [:edit, :update, :destroy, :show]
   before_action :get_avaliable_teachers, only: :edit
 
   def index
@@ -10,11 +11,15 @@ class GroupsController < LockController
     @group = Group.new
   end
 
+  def show
+  end
+
   def edit
   end
 
   def create
-    if Group.create(group_params)
+    @group = Group.new(group_params)
+    if @group.save
       flash[:success] = 'The new group was saved!'
       redirect_to :new_group
     else

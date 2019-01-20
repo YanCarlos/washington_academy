@@ -1,0 +1,11 @@
+.options-admin
+	.section-title Group's details
+.row
+	.col-md-12
+		.frame
+			%h3= @group.name
+			%h5= @group.description
+.row
+	= render partial: 'groups/activities'
+	= render partial: 'groups/students'
+	

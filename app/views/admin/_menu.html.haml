@@ -3,12 +3,16 @@
     %ul.nav.flex-column.menu-admin
       - if current_user.has_role? :admin
         = render partial: 'admin/menu/admin'
+      - if current_user.has_role? :teacher
+        = render partial: 'admin/menu/teacher'
+
   .sidebar_footer
+    %li.dropdown-divider
     %i.fa.fa-user-circle
     = current_user.name
-    |
+    %br
     %i.fa.fa-key
-    = current_user.roles.first.name
+    = current_user.role.capitalize
     
 
       

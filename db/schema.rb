@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918054714) do
+ActiveRecord::Schema.define(version: 20190119190833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "content"
+    t.decimal  "percentage", default: 0.0
+    t.datetime "deadline"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["group_id"], name: "index_activities_on_group_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
+
+  create_table "activities_roles", id: false, force: :cascade do |t|
+    t.integer "activity_id"
+    t.integer "role_id"
+  end
+
+  add_index "activities_roles", ["activity_id", "role_id"], name: "index_activities_roles_on_activity_id_and_role_id", using: :btree
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -62,8 +83,12 @@ ActiveRecord::Schema.define(version: 20180918054714) do
     t.string   "name"
     t.string   "identification"
     t.integer  "group_id"
-    t.string   "avatar"
     t.boolean  "active",                 default: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "avatar_data"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -77,21 +102,7 @@ ActiveRecord::Schema.define(version: 20180918054714) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
-  create_table "workshops", force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.string   "title"
-    t.string   "content"
-    t.decimal  "percentage", default: 0.0
-    t.date     "deadline"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "workshops", ["group_id"], name: "index_workshops_on_group_id", using: :btree
-  add_index "workshops", ["user_id"], name: "index_workshops_on_user_id", using: :btree
-
+  add_foreign_key "activities", "groups"
+  add_foreign_key "activities", "users"
   add_foreign_key "users", "groups"
-  add_foreign_key "workshops", "groups"
-  add_foreign_key "workshops", "users"
 end

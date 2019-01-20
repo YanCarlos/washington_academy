@@ -23,7 +23,7 @@
       - @students.each_with_index do |student, index|
         .row{class: ('pair' if index % 2 == 0)}
           .col-md-3.column.bold
-            = render_avatar(student.avatar.url)
+            = render_avatar(student)
             %a{href: edit_student_path(student)}
               = student.name
           .col-md-2.column

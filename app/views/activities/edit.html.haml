@@ -1,0 +1,10 @@
+.options-admin
+  .section-title Editing activity
+  = link_to 'Back', :back
+= bootstrap_form_for @activity, :url => { :controller => :activities, action: :update}, html:{class: 'form-main form-depend'} do |f|
+  = render partial: 'utils/flash_messages'
+  = render partial: 'activities/fields', locals:{f:f}
+  .row.justify-content-end
+    .col-md-2
+      = f.submit 'Update', class: 'btn btn-lg btn-primary btn-block red-button'
+

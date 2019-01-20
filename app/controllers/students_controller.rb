@@ -1,4 +1,5 @@
 class StudentsController < LockController
+  authorize_resource class: false
   before_action :get_students, only: :index
   before_action :set_student, only: [:edit, :update]
 

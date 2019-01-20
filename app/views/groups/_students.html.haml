@@ -2,7 +2,7 @@
   .row
     .col-md-12
       .options-admin
-        .section-title Group's Students (Active)
+        .section-title Enabled students
       .row.justify-content-md-center
         .col-md-12.col-md-auto
           .table
@@ -17,18 +17,19 @@
             - @group.students.where(active: true).each_with_index do |student, index|
               .row{class: ('pair' if index % 2 == 0)}
                 .col-md-6.column.bold
-                  = render_avatar(student.avatar.url)
+                  = render_avatar(student)
                   %a{href: edit_student_path(student)}
                     = student.name
                 .col-md-4.column
                   = student.phone
                 .col-md-2.column.justify-end
-                  %a.btn.btn-sm.btn-actions{href: edit_student_path(student),'data-toggle':'tooltip', title:'Edit student'}
-                    %i.fa.fa-pencil
+                  - if can? :manage, :student
+                    %a.btn.btn-sm.btn-actions{href: edit_student_path(student),'data-toggle':'tooltip', title:'Edit student'}
+                      %i.fa.fa-pencil
   .row
     .col-md-12
       .options-admin
-        .section-title Group's Students (Inactive)
+        .section-title Disabled students
       .row.justify-content-md-center
         .col-md-12.col-md-auto
           .table
@@ -43,12 +44,13 @@
             - @group.students.where(active: false).each_with_index do |student, index|
               .row{class: ('pair' if index % 2 == 0)}
                 .col-md-6.column.bold
-                  = render_avatar(student.avatar.url)
+                  = render_avatar(student)
                   %a{href: edit_student_path(student)}
                     = student.name
                 .col-md-4.column
                   = student.phone
                 .col-md-2.column.justify-end
-                  %a.btn.btn-sm.btn-actions{href: edit_student_path(student),'data-toggle':'tooltip', title:'Edit student'}
-                    %i.fa.fa-pencil
+                  - if can? :manage, :student
+                    %a.btn.btn-sm.btn-actions{href: edit_student_path(student),'data-toggle':'tooltip', title:'Edit student'}
+                      %i.fa.fa-pencil
 

@@ -1,6 +1,7 @@
 .options-admin
   .section-title List of groups
-  = link_to 'New group', new_group_path
+  - if can? :create, Group
+    = link_to 'New group', new_group_path
 
 .row.justify-content-md-center
   .col-md-12.col-md-auto
@@ -14,17 +15,27 @@
             Description
           .col-md-2.column
             Options
-      - @groups.order(id: :desc).each_with_index do |group, index|
+      - groups =  current_user.groups.order(id: :desc)
+      - if can? :manage, Group
+        - groups =  @groups.order(id: :desc)
+      - groups.order(id: :desc).each_with_index do |group, index|
         .row{class: ('pair' if index % 2 == 0)}
           .col-md-3.column.bold
-            %a{href: edit_group_path(group)}
-              = group.name
+            - if can? :manage, Group
+              %a{href: edit_group_path(group)}
+                = group.name
+            - if cannot? :manage, Group
+              %a{href: group_path(group)}
+                = group.name
           .col-md-7.column
             = group.description
           .col-md-2.column
-            %a.btn.btn-sm.btn-actions{href: edit_group_path(group)}
-              %i.fa.fa-pencil
-            = link_to_delete_helper group, 'Would you like to delete this group?'
+            - if can? :create, Activity
+              = link_to 'Add activity', new_group_activity_path(group)
+            - if can? :manage, Group
+              %a.btn.btn-sm.btn-actions{href: edit_group_path(group)}
+                %i.fa.fa-pencil
+              = link_to_delete_helper group, 'Would you like to delete this group?'
 
 
 

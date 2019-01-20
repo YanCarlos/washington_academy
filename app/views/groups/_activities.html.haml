@@ -1,0 +1,36 @@
+.col-md-6
+  .row
+    .col-md-12
+      .options-admin
+        .section-title My activities
+        %a{href: new_group_activity_path(@group)}
+          Add activity
+      .row
+        - activities = @group.activities.where('user_id = ?', current_user.id)
+        - activities.each do |activity|
+          .col-md-12.col-md-auto
+            .frame
+              .activity
+                .row
+                  .col-md-1
+                    .avatar= render_avatar(current_user)
+                  .col-md-11
+                    .head
+                      .teacher
+                        .title
+                          %a{href: edit_group_activity_path(@group, activity)}
+                            = activity.title
+                      - if activity.status == 'Open'
+                        .status.open= activity.status
+                      - else
+                        .status.closed= activity.status
+                    .body
+                      .created_at
+                        %span= activity.created_at.strftime("Created at %d, %B of %Y")
+                      .flex.justify-space-between.alig-items-center.mt-3
+                        .deadline
+                          %span= activity.deadline.strftime("Ends on %d, %B of %Y")
+                        .type
+                          %span= activity.roles.first.name.capitalize
+        - if activities.size < 1
+          %span There are not registered activities  

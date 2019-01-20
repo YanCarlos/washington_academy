@@ -533,3 +533,96 @@ nav.sidebar{
 .sidebar_footer{
   text-align: center;
 }
+
+.avatar-options{
+  width: 100%;
+  .user_avatar{
+    cursor: pointer;
+  }  
+}
+
+span.help-block{
+  color: #d66a7b;
+}
+
+.rich-editor{
+  .trix-content{
+    background-color: #fff;
+    height: 300px;
+    color: #495057;
+  }
+}
+
+.page-not-found{
+  text-align: center;
+  margin-top: 5%;
+  i{
+    font-size: 4rem;
+    color: #e31c3d;
+  }
+  h1{
+    color: #e31c3d;
+  }
+}
+
+.sidebar_footer{
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.modal-body p{
+  font-size: 18px;
+}
+
+
+.frame{
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.activity{
+  .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .teacher{
+      display: flex;
+      align-items: center;
+      .title{
+        font-size: 16px;
+        a{
+          color: #f80035;
+        }
+      }
+    }
+    .open{
+      color: #2a9456;
+      font-style: oblique;
+    }
+    .closed{
+      color: #e69aae;
+      font-style: oblique;
+    }
+  }
+  .body{
+    .created_at{
+      font-size: 12px;
+    }
+    .type{
+      color: #292929;
+    }
+  }
+}
+
+.flex{
+  display: flex;
+  &.justify-space-between{
+    justify-content: space-between;
+  }
+  &.alig-items-center{
+    align-items: center;
+  }
+}

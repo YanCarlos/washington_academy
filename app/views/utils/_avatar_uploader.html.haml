@@ -1,10 +1,9 @@
 = f.form_group :avatar, label: false do
-  .fileinput{"data-provides" => "fileinput", class: avatar_exists?(object.avatar)} 
+  .fileinput{'data-provides': 'fileinput', class: avatar_exists?(object.avatar)} 
     .fileinput-preview.thumbnail{"data-trigger" => "fileinput", :style => "width: 180px; height: 180px;"}
-      = image_tag(object.avatar_url) if object.avatar? 
+      = image_tag(object.avatar_url(:small)) if object.avatar_url(:small).present? 
     %div
       %span.btn.btn-default.btn-file.avatar-options
         %span.fileinput-new.new Select avatar
         %span.fileinput-exists.change Change
         = f.file_field_without_bootstrap :avatar
-      %a.btn.btn-default.fileinput-exists.avatar-options.remove{"data-dismiss" => "fileinput"} Remove

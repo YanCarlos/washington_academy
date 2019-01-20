@@ -16,5 +16,5 @@
       .col-md-4
         = f.select(:group_id, Group.all.collect {|g| [ g.name, g.id ] },  {  prompt: 'Select a group'}, required: 'required' )
       .col-md-4
-        = f.form_group :terms, label: { text: 'Do you want to activate this student?' } do
-          = f.check_box :active, label: 'Activate'
+        = f.form_group :terms, label: { text: 'Do you want to enable this student?' } do
+          = f.check_box :active, label: 'Enable'

@@ -30,5 +30,6 @@
 //= require menu.js
 //= require jasny-bootstrap.min
 //= require util.js
+//= require trix
 
 

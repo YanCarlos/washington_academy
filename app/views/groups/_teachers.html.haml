@@ -1,6 +1,6 @@
 .col-md-6
   .options-admin
-    .section-title Group's Teachers
+    .section-title Teachers
     %button.btn.btn-link{onclick: 'open_modal("#add_teacher_to_group")', type:'button'}
       %span.glyphicon.glyphicon-plus
       Add teacher
@@ -18,7 +18,7 @@
         - @group.teachers.each_with_index do |student, index|
           .row{class: ('pair' if index % 2 == 0)}
             .col-md-6.column.bold
-              = render_avatar(student.avatar.url)
+              = render_avatar(student)
               %a{href: edit_teacher_path(student)}
                 = student.name
             .col-md-4.column

@@ -1,47 +1,44 @@
-class AvatarUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+require 'image_processing/mini_magick'
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+class AvatarUploader < Shrine
+  plugin :remove_attachment
+  plugin :pretty_location
+  plugin :processing
+  plugin :versions
+  plugin :validation_helpers
+  plugin :cached_attachment_data
+  plugin :restore_cached_data
+  plugin :validation_helpers
+  plugin :determine_mime_type
+  plugin :delete_raw # delete processed files after uploading
+  plugin :data_uri
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  ALLOWED_TYPES = %w[image/jpg image/jpeg image/png]
+
+  Attacher.validate do
+    validate_mime_type_inclusion ALLOWED_TYPES
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  process(:store) do |io|
+    versions = { original: io } # retain original
 
-  # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
+    io.download do |original|
+      pipeline = ImageProcessing::MiniMagick.source(original)
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+      versions[:medium] = pipeline.resize_to_limit!(200, nil)
+      versions[:small]  = pipeline.resize_to_limit!(100, nil)
+    end
 
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+    versions # return the hash of processed files
+  end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def generate_location(io, context)
+    class_name  = context[:record].class.name.downcase
+    role =  context[:record].roles.first.name
+    id =  context[:record].id
+    file_name = io.original_filename
+
+    [class_name, role, id, file_name].compact.join('/')
+  end  
+  
 end

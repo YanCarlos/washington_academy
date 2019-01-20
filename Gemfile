@@ -84,6 +84,12 @@ gem 'data-confirm-modal'
 gem 'carrierwave', '~> 1.0'
 gem 'jasny-bootstrap-rails'
 gem 'tinymce-rails'
+gem 'aws-sdk-s3'
+gem 'shrine'
+gem 'image_processing', '~> 1.0'
+gem 'mini_magick', '~> 4.0'
+gem 'trix'
+gem 'cancan'
 
 
 

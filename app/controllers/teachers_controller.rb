@@ -1,4 +1,5 @@
 class TeachersController < LockController
+  authorize_resource class: false
   before_action :get_teachers, only: :index
   before_action :set_teacher, only: [:edit, :update]
 

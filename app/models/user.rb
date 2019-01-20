@@ -6,9 +6,9 @@ class User < ApplicationRecord
   rolify
   belongs_to :group
   has_and_belongs_to_many :groups
-  mount_uploader :avatar, AvatarUploader
+  include AvatarUploader::Attachment.new(:avatar)
   before_validation :before_validation
-  has_many :workshops
+  has_many :activities
 
   def before_validation
     self.password = self.identification if self.password.nil? && self.new_record?
@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   def be_teacher
     add_role :teacher
+  end
+
+  def role
+    self.roles.first.name
   end
 
 
