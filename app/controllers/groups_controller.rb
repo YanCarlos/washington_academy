@@ -1,5 +1,5 @@
 class GroupsController < LockController
-  load_and_authorize_resource :group
+  authorize_resource class: false
   before_action :get_groups, only: :index
   before_action :set_group, only: [:edit, :update, :destroy, :show]
   before_action :get_avaliable_teachers, only: :edit
@@ -21,7 +21,7 @@ class GroupsController < LockController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = 'The new group was saved!'
-      redirect_to :new_group
+      redirect_to new_group_path
     else
       flash[:error] = 'An error occurred while saving the group'
       render :new
