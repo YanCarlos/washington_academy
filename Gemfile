@@ -90,6 +90,8 @@ gem 'image_processing', '~> 1.0'
 gem 'mini_magick', '~> 4.0'
 gem 'trix'
 gem 'cancan'
+gem 'paperclip'
+
 
 
 
