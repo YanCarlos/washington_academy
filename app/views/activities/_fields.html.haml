@@ -1,16 +1,19 @@
+= render partial: 'utils/tinymce'
 .row
   = f.hidden_field :user_id, value: current_user.id
   .col-md-12
     = f.text_field :title, placeholder: 'Title ', required: 'required'
-  .col-md-3
-    = f.select(:group_id, current_user.groups.collect {|g| [ g.name, g.id ] },  {  prompt: 'Select a group'}, required: 'required' )
-  .col-md-3
+  - if params['group_id'].present?
+    = f.hidden_field :group_id, value: params['group_id']
+  - else
+    .col-md-3
+      = f.select(:group_id, current_user.groups.collect {|g| [ g.name, g.id ] },  {  prompt: 'Select a group'}, required: 'required' )
+  .col-md-4
     = f.select :type,  [['Workshop', 'workshop'], ['Discussion', 'discussion']], {  prompt: 'Select type...'}, required: 'required'
-  .col-md-3
+  .col-md-4
     - available_percentage = Activity.free_percentage(@group, current_user)
-    = f.number_field :percentage, label: "Percentage (#{available_percentage}% available)", required: 'required', min: '0', max: available_percentage
-  .col-md-3
-    = f.datetime_local_field :deadline, placeholder: 'Deadline', required: 'required'
+    = f.number_field :percentage, label: "Percentage (#{available_percentage}% available)", required: 'required', min: 0, max: available_percentage
+  .col-md-4
+    = f.text_field :deadline, class: 'datetimepicker', required: 'required' 
   .col-md-12
-    = f.form_group :content, label: { text: 'Description' }, class: 'rich-editor' do
-      = f.trix_editor :content
+    = f.text_area :content, label: 'Description'  , class: 'tinymce', rows: 40, cols: 120,  required: 'required' 

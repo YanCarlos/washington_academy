@@ -31,5 +31,9 @@
 //= require jasny-bootstrap.min
 //= require util.js
 //= require trix
+//= require tinymce-jquery
+//= require moment
+//= require flatpickr
+//= require datetimepicker.js
 
 

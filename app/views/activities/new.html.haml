@@ -1,5 +1,8 @@
 .options-admin
-  .section-title Creating a new activity
+  - if params['group_id'].present?
+    .section-title= "Creating a new activity for group #{Group.find(params['group_id']).name}"
+  - else
+    .section-title Creating a new activity
   = link_to 'Back', :back
 = bootstrap_form_for @activity, :url => { :controller => :activities}, html:{class: 'form-main form-depend'} do |f|
   = render partial: 'utils/flash_messages'

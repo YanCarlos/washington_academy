@@ -91,6 +91,10 @@ gem 'mini_magick', '~> 4.0'
 gem 'trix'
 gem 'cancan'
 gem 'paperclip'
+gem 'yt', '~> 0.28.0'
+gem 'tinymce-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'flatpickr_rails'
 
 
 

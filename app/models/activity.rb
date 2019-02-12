@@ -6,6 +6,13 @@ class Activity < ApplicationRecord
 	
 	attr_accessor :type
 
+	validate :empty_fields?
+
+	def empty_fields?
+		errors.add(:deadline, 'Please enter a value') if self.deadline.nil?
+		errors.add(:content, 'Please enter a value') if self.content.empty?
+	end
+
 	def be_workshop
 		add_role :workshop
 	end

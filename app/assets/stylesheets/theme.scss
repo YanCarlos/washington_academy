@@ -365,7 +365,7 @@ textarea.counter_input{
 }
 
 .has-error{
-  small{
+  small, span.help-block{
     background-color: #f35959;
     color: #fff;
     padding: 2px;
@@ -541,9 +541,6 @@ nav.sidebar{
   }  
 }
 
-span.help-block{
-  color: #d66a7b;
-}
 
 .rich-editor{
   .trix-content{
@@ -624,5 +621,14 @@ span.help-block{
   }
   &.alig-items-center{
     align-items: center;
+  }
+}
+
+
+.top-main-menu{
+  li{
+    a{
+      color: #fff !important;
+    }
   }
 }

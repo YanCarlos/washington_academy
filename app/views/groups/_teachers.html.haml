@@ -1,33 +1,38 @@
-.col-md-6
+- teachers = @group.teachers
+.col-md-12
   .options-admin
-    .section-title Teachers
-    %button.btn.btn-link{onclick: 'open_modal("#add_teacher_to_group")', type:'button'}
-      %span.glyphicon.glyphicon-plus
-      Add teacher
+    .section-title Teacher
+    - if teachers.count == 0
+      %button.btn.btn-link{onclick: 'open_modal("#add_teacher_to_group")', type:'button'}
+        %span.glyphicon.glyphicon-plus
+        Add teacher
   .row.justify-content-md-center
     .col-md-12.col-md-auto
-      .table
-        .head
-          .row
-            .col-md-6.column
-              Name
-            .col-md-4.column
-              Phone
-            .col-md-2.column.justify-end
-              Options
-        - @group.teachers.each_with_index do |student, index|
-          .row{class: ('pair' if index % 2 == 0)}
-            .col-md-6.column.bold
-              = render_avatar(student)
-              %a{href: edit_teacher_path(student)}
-                = student.name
-            .col-md-4.column
-              = student.phone
-            .col-md-2.column.justify-end
-              %a.btn.btn-sm.btn-actions{href: edit_teacher_path(student),'data-toggle':'tooltip', title:'Edit teacher'}
-                %i.fa.fa-pencil
-              %a.btn.btn-sm.btn-actions{href: delete_teacher_from_group_path({group_id: @group.id, teacher_id: student.id}), 'data-toggle':'tooltip', title:'Remove teacher from this group'}
-                %i.fa.fa-minus-circle
+      - if teachers.count == 0
+        %p.pl-3.mb-5 This group does not have an assigned teacher
+      - else
+        .table
+          .head
+            .row
+              .col-md-6.column
+                Name
+              .col-md-4.column
+                Phone
+              .col-md-2.column.justify-end
+                Options
+          - teachers.each_with_index do |student, index|
+            .row{class: ('pair' if index % 2 == 0)}
+              .col-md-6.column.bold
+                = render_avatar(student)
+                %a{href: edit_teacher_path(student)}
+                  = student.name
+              .col-md-4.column
+                = student.phone
+              .col-md-2.column.justify-end
+                %a.btn.btn-sm.btn-actions{href: edit_teacher_path(student),'data-toggle':'tooltip', title:'Edit teacher'}
+                  %i.fa.fa-pencil
+                %a.btn.btn-sm.btn-actions{href: delete_teacher_from_group_path({group_id: @group.id, teacher_id: student.id}), 'data-toggle':'tooltip', title:'Remove teacher from this group'}
+                  %i.fa.fa-minus-circle
 
 
 
