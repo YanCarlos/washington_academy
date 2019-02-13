@@ -247,9 +247,6 @@ input, textarea{
   margin-top: -300px; /*same height as header*/
 }
 
-#new_contacting{
-  padding-top: 40px;
-}
 
 .counter_title_1{
   color: $red-flag;
@@ -631,4 +628,14 @@ nav.sidebar{
       color: #fff !important;
     }
   }
+}
+
+
+.contact-form{
+  background-color: #fff;
+  padding: 30px;
+}
+
+.counter{
+  box-shadow: 0px 5px 40px rgba(29,34,47,0.15)
 }
