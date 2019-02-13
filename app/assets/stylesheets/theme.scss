@@ -639,3 +639,23 @@ nav.sidebar{
 .counter{
   box-shadow: 0px 5px 40px rgba(29,34,47,0.15)
 }
+
+.left-notificacion{
+  float: right;
+  background-color: #102e51;
+  padding: 2px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.new_notification{
+  background-color: #e31c3d;
+  color: #fff;
+  padding: 2px 5px 2px 5px;
+  font-size: 10px;
+}

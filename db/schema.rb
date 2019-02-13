@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190119190833) do
+ActiveRecord::Schema.define(version: 20190213004735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,12 @@ ActiveRecord::Schema.define(version: 20190119190833) do
   end
 
   create_table "contactings", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "message"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "seen",       default: false
   end
 
   create_table "groups", force: :cascade do |t|

@@ -1,4 +1,8 @@
 class ContactingController < ApplicationController
+	def index
+		@messages = Contacting.all.order(id: :desc)
+	end
+
 	def create
 		@contacting = Contacting.new(message_params)
 		if @contacting.save

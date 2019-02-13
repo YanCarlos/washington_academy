@@ -1,0 +1,28 @@
+.options-admin
+  .section-title List of messages (from contact us form)
+
+.row.justify-content-md-center
+  .col-md-12.col-md-auto
+    .table
+      .head
+        .row
+          .col-md-2.column.bold
+            %b Contact name
+          .col-md-2.column
+            %b Contact phone
+          .col-md-7.column
+            %b Message
+          .col-md-1
+      - @messages.each_with_index do |message, index|
+        .row{class: ('pair' if index % 2 == 0)}
+          .col-md-2.column
+            = message.name
+          .col-md-2.column
+            = message.phone
+          .col-md-7.column
+            = message.message
+          .col-md-1.column
+            - if message.seen == false
+              %span.new_notification New
+          - message.update_attributes(seen: true)
+

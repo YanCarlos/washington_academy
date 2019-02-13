@@ -10,3 +10,11 @@
   %a.nav-link{:href => teachers_path, class: is_menu_active?(:teachers)}
     %i.ico.fa.fa-male
     Teachers
+%li.nav-item
+  %a.nav-link{:href => contacting_index_path, class: is_menu_active?(:contacting)}
+    %i.ico.fa.fa-envelope
+    Contact us form
+    - messages = Contacting.where(seen: false).count
+    - if messages > 0
+      .left-notificacion
+        %span= messages      
